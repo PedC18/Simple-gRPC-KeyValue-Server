@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+service ChaveValor {
+    rpc Insercao(Pedido) returns (RespostaInsercao) {}
+    rpc Consulta(Pedido) returns (RespostaConsulta) {}
+    rpc Ativacao(Pedido) returns (RespostaAtivacao) {}
+    rpc Termino(Pedido) returns (RespostaTermino) {}
+}
+
+service ServidorCentral {
+    rpc Registro(PedidoRegistro) returns (RespostaRegistro) {}
+    rpc Mapeamento(Pedido) returns (RespostaMap) {}
+    rpc Termino(Pedido) returns (RespostaTermino) {}
+
+}
+
+message Pedido {
+    int32 chave = 1;
+    string valor = 2;
+    string id_servico = 3;
+}
+
+message RespostaInsercao {
+    int32 status = 1;
+}
+
+message RespostaConsulta {
+    string valor = 1;
+}
+
+message RespostaAtivacao {
+    int32 status = 1;
+}
+
+message RespostaTermino {
+    int32 status = 1;
+}
+
+message RespostaRegistro{
+    int32 numeroChaves = 1;    
+}
+
+message RespostaMap{
+    string id_servico = 1;
+}
+
+message PedidoMap{
+    int32 chave = 1;
+}
+
+message PedidoRegistro{
+    string id_servico = 1;
+    repeated int32 ListaChaves = 2;
+}
