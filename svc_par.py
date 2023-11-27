@@ -33,7 +33,7 @@ class ChaveValorServicer(ChaveValor_pb2_grpc.ChaveValorServicer):
             channel =  grpc.insecure_channel(id_servico_central)
             stub = ChaveValor_pb2_grpc.ServidorCentralStub(channel)
 
-            id_servico_atual = socket.getfqdn()
+            id_servico_atual = socket.getfqdn() + ":" + sys.argv[1]
             ListaChaves = self.data.keys()
 
             pedido = ChaveValor_pb2.PedidoRegistro(id_servico=id_servico_atual, ListaChaves=ListaChaves)
