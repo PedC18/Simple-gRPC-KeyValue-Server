@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import ChaveValor_pb2 as ChaveValor__pb2
+import Servicos_pb2 as Servicos__pb2
 
 
 class ChaveValorStub(object):
@@ -16,23 +16,23 @@ class ChaveValorStub(object):
         """
         self.Insercao = channel.unary_unary(
                 '/ChaveValor/Insercao',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaInsercao.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaInsercao.FromString,
                 )
         self.Consulta = channel.unary_unary(
                 '/ChaveValor/Consulta',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaConsulta.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaConsulta.FromString,
                 )
         self.Ativacao = channel.unary_unary(
                 '/ChaveValor/Ativacao',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaAtivacao.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaAtivacao.FromString,
                 )
         self.Termino = channel.unary_unary(
                 '/ChaveValor/Termino',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaTermino.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaTermino.FromString,
                 )
 
 
@@ -68,23 +68,23 @@ def add_ChaveValorServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Insercao': grpc.unary_unary_rpc_method_handler(
                     servicer.Insercao,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaInsercao.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaInsercao.SerializeToString,
             ),
             'Consulta': grpc.unary_unary_rpc_method_handler(
                     servicer.Consulta,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaConsulta.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaConsulta.SerializeToString,
             ),
             'Ativacao': grpc.unary_unary_rpc_method_handler(
                     servicer.Ativacao,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaAtivacao.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaAtivacao.SerializeToString,
             ),
             'Termino': grpc.unary_unary_rpc_method_handler(
                     servicer.Termino,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaTermino.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaTermino.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -108,8 +108,8 @@ class ChaveValor(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ChaveValor/Insercao',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaInsercao.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaInsercao.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -125,8 +125,8 @@ class ChaveValor(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ChaveValor/Consulta',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaConsulta.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaConsulta.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -142,8 +142,8 @@ class ChaveValor(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ChaveValor/Ativacao',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaAtivacao.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaAtivacao.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -159,8 +159,8 @@ class ChaveValor(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ChaveValor/Termino',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaTermino.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaTermino.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -176,18 +176,18 @@ class ServidorCentralStub(object):
         """
         self.Registro = channel.unary_unary(
                 '/ServidorCentral/Registro',
-                request_serializer=ChaveValor__pb2.PedidoRegistro.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaRegistro.FromString,
+                request_serializer=Servicos__pb2.PedidoRegistro.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaRegistro.FromString,
                 )
         self.Mapeamento = channel.unary_unary(
                 '/ServidorCentral/Mapeamento',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaMap.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaMap.FromString,
                 )
         self.Termino = channel.unary_unary(
                 '/ServidorCentral/Termino',
-                request_serializer=ChaveValor__pb2.Pedido.SerializeToString,
-                response_deserializer=ChaveValor__pb2.RespostaTermino.FromString,
+                request_serializer=Servicos__pb2.Pedido.SerializeToString,
+                response_deserializer=Servicos__pb2.RespostaTermino.FromString,
                 )
 
 
@@ -217,18 +217,18 @@ def add_ServidorCentralServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Registro': grpc.unary_unary_rpc_method_handler(
                     servicer.Registro,
-                    request_deserializer=ChaveValor__pb2.PedidoRegistro.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaRegistro.SerializeToString,
+                    request_deserializer=Servicos__pb2.PedidoRegistro.FromString,
+                    response_serializer=Servicos__pb2.RespostaRegistro.SerializeToString,
             ),
             'Mapeamento': grpc.unary_unary_rpc_method_handler(
                     servicer.Mapeamento,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaMap.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaMap.SerializeToString,
             ),
             'Termino': grpc.unary_unary_rpc_method_handler(
                     servicer.Termino,
-                    request_deserializer=ChaveValor__pb2.Pedido.FromString,
-                    response_serializer=ChaveValor__pb2.RespostaTermino.SerializeToString,
+                    request_deserializer=Servicos__pb2.Pedido.FromString,
+                    response_serializer=Servicos__pb2.RespostaTermino.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -252,8 +252,8 @@ class ServidorCentral(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ServidorCentral/Registro',
-            ChaveValor__pb2.PedidoRegistro.SerializeToString,
-            ChaveValor__pb2.RespostaRegistro.FromString,
+            Servicos__pb2.PedidoRegistro.SerializeToString,
+            Servicos__pb2.RespostaRegistro.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -269,8 +269,8 @@ class ServidorCentral(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ServidorCentral/Mapeamento',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaMap.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaMap.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -286,7 +286,7 @@ class ServidorCentral(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ServidorCentral/Termino',
-            ChaveValor__pb2.Pedido.SerializeToString,
-            ChaveValor__pb2.RespostaTermino.FromString,
+            Servicos__pb2.Pedido.SerializeToString,
+            Servicos__pb2.RespostaTermino.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

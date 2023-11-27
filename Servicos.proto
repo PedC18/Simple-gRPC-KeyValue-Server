@@ -44,10 +44,6 @@ message RespostaMap{
     string id_servico = 1;
 }
 
-message PedidoMap{
-    int32 chave = 1;
-}
-
 message PedidoRegistro{
     string id_servico = 1;
     repeated int32 ListaChaves = 2;
